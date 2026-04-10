@@ -18,6 +18,22 @@ function addRecommendation() {
   }
 }
 
+function sendContactEmail(){
+var contactMsg = document.getElementById("contact");
+var  name = document.getElementById("contact_name");
+  if (contactMsg.value != null && contactMsg.value.trim() != "" && name.value != null && name.value.trim() != "")
+  {
+    console.log("Contact added");
+    showPopup(true);
+    emailjs.send("service_id", "template_id", {
+  from_name: name.value,
+  message: contactMsg.value,
+  //reply_to: form.email.value, //no email input set up yet
+});
+  }
+  else {alert("invalid contact name or message!")}
+}
+
 function showPopup(bool) {
   if (bool) {
     document.getElementById('popup').style.visibility = 'visible'
