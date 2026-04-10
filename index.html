@@ -31,7 +31,7 @@
           <!-- Add the links for Skills, Projects and Recommendation here -->
           <a class="topmenu" href="#skills">Skills</a>
           <a class="topmenu" href="#projects">Projects</a>
-          <a class="topmenu" href="#recommendations">Recommendations</a>
+          <a class="topmenu" href="#contact">Contact</a>
         </div>
       </div>    
     </nav>
@@ -199,15 +199,15 @@
       </div>
     </section>
 
-    <!-- Recommendation Form -->
+    <!-- Contact Form -->
     <section id="contact">
       <div class="flex_center">
         <fieldset>
           <legend class="introduction">Contact</legend>          
-          <input type="text" placeholder="Name"> <br/>
+          <input id="contact_name" type="text" placeholder="Name"> <br/>
           <textarea id="new_contact" cols="500" rows="10" placeholder="Message"></textarea>
           <div class="flex_center">
-            <button id="contact_btn" onclick="sendContactEmail()">Submit</button>
+            <button id="submit_btn" onclick="sendContactEmail()">Submit</button>
           </div>
         </fieldset>
       </div>
