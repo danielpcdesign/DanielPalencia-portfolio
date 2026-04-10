@@ -23,15 +23,35 @@ var contactMsg = document.getElementById("contact");
 var  name = document.getElementById("contact_name");
   if (contactMsg.value != null && contactMsg.value.trim() != "" && name.value != null && name.value.trim() != "")
   {
-    console.log("Contact added");
-    showPopup(true);
-    emailjs.send("service_id", "template_id", {
-  from_name: name.value,
-  message: contactMsg.value,
+    //button react when submiting
+    var btn = document.getElementById("submit_btn");
+    btn.disabled = true;
+    btn.innerText = "Sending...";
+    
+    console.log("Contact email attempting send...");
+    emailjs.send("service_7ho8bco", "template_l8hrcfm", {
+    from_name: name.value,
+    message: contactMsg.value,
   //reply_to: form.email.value, //no email input set up yet
-});
+    }) 
+    .then(function(response) {
+      console.log("Email sent successfully!", response.status, response.text);
+      showPopup(true);
+      // Clear fields after success
+      name.value = "";
+      contactMsg.value = "";
+    })
+    .catch(function(error) {
+      console.error("Email failed to send:", error);
+      alert("Something went wrong. Please try again.");
+    })
+    .finally(function(){
+      //reset btn
+      btn.disabled = false;
+      btn.innerText = "Send";
+    });
   }
-  else {alert("invalid contact name or message!")}
+  else {alert("invalid contact name or message!");}
 }
 
 function showPopup(bool) {
