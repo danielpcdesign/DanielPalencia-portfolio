@@ -19,7 +19,7 @@ function addRecommendation() {
 }
 
 function sendContactEmail(){
-var contactMsg = document.getElementById("contact");
+var contactMsg = document.getElementById("new_contact");
 var  name = document.getElementById("contact_name");
   if (contactMsg.value != null && contactMsg.value.trim() != "" && name.value != null && name.value.trim() != "")
   {
